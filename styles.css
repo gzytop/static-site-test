@@ -1,0 +1,206 @@
+:root {
+    --color-bg-from: #0f172a;
+    --color-bg-to: #1e1b4b;
+    --color-accent: #6366f1;
+    --color-accent-hover: #818cf8;
+    --color-card: rgba(255, 255, 255, 0.06);
+    --color-card-border: rgba(255, 255, 255, 0.12);
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
+    --shadow-card: 0 25px 60px -20px rgba(0, 0, 0, 0.6);
+    --radius-card: 24px;
+    --transition-base: 0.25s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", Roboto, sans-serif;
+    color: var(--color-text-primary);
+    background: radial-gradient(
+            circle at 20% 20%,
+            rgba(99, 102, 241, 0.35),
+            transparent 55%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(236, 72, 153, 0.25),
+            transparent 55%
+        ),
+        linear-gradient(135deg, var(--color-bg-from), var(--color-bg-to));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--color-card);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-card);
+    padding: 48px 36px 32px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    animation: cardFadeIn 0.7s ease both;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.avatar-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, #6366f1, #ec4899, #f59e0b);
+    animation: avatarSpin 8s linear infinite;
+}
+
+@keyframes avatarSpin {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #1e1b4b;
+    display: block;
+    animation: avatarSpinReverse 8s linear infinite;
+}
+
+@keyframes avatarSpinReverse {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, #f8fafc, #a5b4fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+}
+
+.bio {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: 32px;
+    text-align: left;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 8px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-card-border);
+    border-radius: 12px;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all var(--transition-base);
+}
+
+.social-link:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -8px rgba(99, 102, 241, 0.6);
+}
+
+.social-link svg {
+    flex-shrink: 0;
+}
+
+.footer {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    padding-top: 20px;
+    border-top: 1px solid var(--color-card-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.separator {
+    opacity: 0.5;
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 36px 24px 24px;
+    }
+
+    .name {
+        font-size: 24px;
+    }
+
+    .avatar-wrapper {
+        width: 96px;
+        height: 96px;
+    }
+}
