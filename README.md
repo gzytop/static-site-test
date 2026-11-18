@@ -37,3 +37,4 @@ python -m http.server 8000
 - `index.html` — 页面主体
 - `styles.css` — 样式表
 - `README.md` — 项目说明
+- 演示codex的代码审查功能
